@@ -1,0 +1,15 @@
+name: eu_tire_label
+description: EU tire label generator in Dart
+version: 1.0.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  qr: ^3.0.1
+  xml: ^6.3.0
+  http: ^1.1.0
+
+dev_dependencies:
+  test: ^1.24.0
+  lints: ^3.0.0 
