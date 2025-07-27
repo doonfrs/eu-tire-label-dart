@@ -1,4 +1,4 @@
-import 'enums.dart';
+import 'package:eu_tire_label/src/enums.dart';
 
 /// Parse tire class from string
 TireClass parseTireClass(String str) {

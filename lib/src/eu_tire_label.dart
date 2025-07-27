@@ -1,4 +1,4 @@
-import 'enums.dart';
+import 'package:eu_tire_label/src/enums.dart';
 
 /// Main data structure for EU tire label information
 class EuTireLabel {

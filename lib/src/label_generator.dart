@@ -1,9 +1,5 @@
-import 'dart:convert';
-import 'dart:typed_data';
-import 'enums.dart';
-import 'eu_tire_label.dart';
-import 'parsers.dart';
-import 'package:xml/xml.dart';
+import 'package:eu_tire_label/src/enums.dart';
+import 'package:eu_tire_label/src/eu_tire_label.dart';
 
 /// Generator for EU tire labels in SVG format
 class LabelGenerator {
@@ -374,7 +370,6 @@ class LabelGenerator {
         label = label.replaceAll('[ROLLING-NOISE-C]', 'active');
         break;
       case RollingNoiseClass.none:
-      default:
         label = label.replaceAll('[ROLLING-NOISE-A]', '');
         label = label.replaceAll('[ROLLING-NOISE-B]', '');
         label = label.replaceAll('[ROLLING-NOISE-C]', '');
@@ -403,7 +398,6 @@ class LabelGenerator {
       case TireClass.c3:
         return 'C3';
       case TireClass.error:
-      default:
         return '';
     }
   }
@@ -425,7 +419,6 @@ class LabelGenerator {
       case FuelEfficiencyClass.g:
         return '58.375';
       case FuelEfficiencyClass.none:
-      default:
         return '0';
     }
   }
@@ -447,7 +440,6 @@ class LabelGenerator {
       case FuelEfficiencyClass.g:
         return '51.25'; // Same as E in EU/2020/740
       case FuelEfficiencyClass.none:
-      default:
         return '0';
     }
   }
@@ -469,7 +461,6 @@ class LabelGenerator {
       case WetGripClass.g:
         return '58.375';
       case WetGripClass.none:
-      default:
         return '0';
     }
   }
@@ -491,7 +482,6 @@ class LabelGenerator {
       case WetGripClass.g:
         return '51.25'; // Same as E in EU/2020/740
       case WetGripClass.none:
-      default:
         return '0';
     }
   }
@@ -508,7 +498,6 @@ class LabelGenerator {
         label = label.replaceAll('[ROLLING-NOISE-1-DISPLAY]', 'none');
       // fall through
       case RollingNoiseClass.none:
-      default:
         label = label.replaceAll('[ROLLING-NOISE-1-DISPLAY]', '');
         label = label.replaceAll('[ROLLING-NOISE-2-DISPLAY]', '');
         label = label.replaceAll('[ROLLING-NOISE-3-DISPLAY]', '');

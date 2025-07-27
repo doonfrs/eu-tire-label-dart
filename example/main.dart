@@ -3,7 +3,7 @@ import 'package:eu_tire_label/eu_tire_label.dart';
 
 void main() {
   // Create a tire label data structure
-  final tireData = EuTireLabel(
+  const tireData = EuTireLabel(
     title: 'EU Tire Label Example',
     qrcode: 'http://eprel.eu/624150',
     trademark: 'MICHELINE',

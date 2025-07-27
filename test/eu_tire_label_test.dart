@@ -4,7 +4,7 @@ import 'package:eu_tire_label/eu_tire_label.dart';
 void main() {
   group('EU Tire Label Tests', () {
     test('should create EuTireLabel with default values', () {
-      final label = EuTireLabel();
+      const label = EuTireLabel();
 
       expect(label.title, equals(''));
       expect(label.qrcode, equals(''));
@@ -21,7 +21,7 @@ void main() {
     });
 
     test('should create EuTireLabel with custom values', () {
-      final label = EuTireLabel(
+      const label = EuTireLabel(
         title: 'Test Tire',
         qrcode: 'http://example.com',
         trademark: 'BRAND',
@@ -101,7 +101,7 @@ void main() {
     });
 
     test('should generate EC/1222/2009 label', () {
-      final label = EuTireLabel(
+      const label = EuTireLabel(
         title: 'Test Tire',
         tireClass: TireClass.c1,
         fuelEfficiency: FuelEfficiencyClass.a,
@@ -121,7 +121,7 @@ void main() {
     });
 
     test('should generate EU/2020/740 label', () {
-      final label = EuTireLabel(
+      const label = EuTireLabel(
         title: 'Test Tire',
         qrcode: 'http://example.com',
         trademark: 'BRAND',
