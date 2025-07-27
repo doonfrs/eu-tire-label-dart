@@ -1,1 +1,3 @@
 .dart_tool/
+test-script/*.svg
+test-script/*.png
