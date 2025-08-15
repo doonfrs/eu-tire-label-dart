@@ -546,8 +546,8 @@ class LabelGenerator {
 
       return '<path d="${pathData.toString()}"/>';
     } catch (e) {
-      // Fallback to empty path if QR generation fails
-      return '';
+      // If QR generation fails, throw the error to fail fast
+      throw Exception('Failed to generate QR code: $e');
     }
   }
 
