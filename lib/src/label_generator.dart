@@ -1,5 +1,6 @@
 import 'package:eu_tire_label/src/enums.dart';
 import 'package:eu_tire_label/src/eu_tire_label.dart';
+import 'package:qr/qr.dart';
 
 /// Generator for EU tire labels in SVG format
 class LabelGenerator {
@@ -509,9 +510,45 @@ class LabelGenerator {
       return '';
     }
 
-    // Generate actual QR code pattern based on the C implementation
-    // This is a placeholder - the C code uses the QRcode library
-    return '''<path d="M0,0h1v7h-1zM0,8h1v2h-1zM0,11h1v4h-1zM0,18h1v1h-1zM0,20h1v1h-1zM0,22h1v7h-1zM1,0h1v1h-1zM1,6h1v1h-1zM1,8h1v5h-1zM1,17h1v1h-1zM1,19h1v1h-1zM1,22h1v1h-1zM1,28h1v1h-1zM2,0h1v1h-1zM2,2h1v3h-1zM2,6h1v1h-1zM2,8h1v2h-1zM2,11h1v1h-1zM2,13h1v1h-1zM2,16h1v2h-1zM2,19h1v1h-1zM2,22h1v1h-1zM2,24h1v3h-1zM2,28h1v1h-1zM3,0h1v1h-1zM3,2h1v3h-1zM3,6h1v1h-1zM3,10h1v2h-1zM3,14h1v2h-1zM3,19h1v2h-1zM3,22h1v1h-1zM3,24h1v3h-1zM3,28h1v1h-1zM4,0h1v1h-1zM4,2h1v3h-1zM4,6h1v1h-1zM4,8h1v1h-1zM4,10h1v3h-1zM4,18h1v2h-1zM4,22h1v1h-1zM4,24h1v3h-1zM4,28h1v1h-1zM5,0h1v1h-1zM5,6h1v1h-1zM5,8h1v1h-1zM5,12h1v5h-1zM5,20h1v1h-1zM5,22h1v1h-1zM5,28h1v1h-1zM6,0h1v7h-1zM6,8h1v1h-1zM6,10h1v1h-1zM6,12h1v1h-1zM6,14h1v1h-1zM6,16h1v1h-1zM6,18h1v1h-1zM6,20h1v1h-1zM6,22h1v7h-1zM7,8h1v1h-1zM7,12h1v1h-1zM7,15h1v1h-1zM7,18h1v1h-1zM8,2h1v1h-1zM8,6h1v3h-1zM8,11h1v2h-1zM8,15h1v1h-1zM8,17h1v2h-1zM8,21h1v4h-1zM8,26h1v3h-1zM9,0h1v1h-1zM9,2h1v2h-1zM9,5h1v1h-1zM9,7h1v1h-1zM9,10h1v1h-1zM9,13h1v3h-1zM9,17h1v1h-1zM9,20h1v4h-1zM9,25h1v3h-1zM10,1h1v4h-1zM10,6h1v4h-1zM10,15h1v1h-1zM10,18h1v2h-1zM10,22h1v1h-1zM10,24h1v2h-1zM10,27h1v1h-1zM11,1h1v1h-1zM11,3h1v1h-1zM11,8h1v2h-1zM11,11h1v1h-1zM11,13h1v2h-1zM11,16h1v2h-1zM11,19h1v1h-1zM11,21h1v2h-1zM11,24h1v2h-1zM11,27h1v1h-1zM12,0h1v3h-1zM12,6h1v2h-1zM12,12h1v4h-1zM12,20h1v4h-1zM12,28h1v1h-1zM13,0h1v1h-1zM13,2h1v2h-1zM13,5h1v1h-1zM13,7h1v1h-1zM13,10h1v1h-1zM13,13h1v1h-1zM13,15h1v1h-1zM13,18h1v1h-1zM13,21h1v1h-1zM13,23h1v1h-1zM13,26h1v1h-1zM14,1h1v4h-1zM14,6h1v4h-1zM14,14h1v4h-1zM14,22h1v4h-1zM15,1h1v1h-1zM15,3h1v1h-1zM15,8h1v2h-1zM15,11h1v1h-1zM15,13h1v2h-1zM15,16h1v2h-1zM15,19h1v1h-1zM15,21h1v2h-1zM15,24h1v2h-1zM15,27h1v1h-1zM16,0h1v3h-1zM16,6h1v2h-1zM16,12h1v4h-1zM16,20h1v4h-1zM16,28h1v1h-1zM17,0h1v1h-1zM17,2h1v2h-1zM17,5h1v1h-1zM17,7h1v1h-1zM17,10h1v1h-1zM17,13h1v1h-1zM17,15h1v1h-1zM17,18h1v1h-1zM17,21h1v1h-1zM17,23h1v1h-1zM17,26h1v1h-1zM18,0h1v5h-1zM18,6h1v4h-1zM18,14h1v4h-1zM18,22h1v4h-1zM19,1h1v1h-1zM19,3h1v3h-1zM19,7h1v1h-1zM19,11h1v1h-1zM19,15h1v1h-1zM19,22h1v2h-1zM19,25h1v2h-1zM20,0h1v1h-1zM20,2h1v6h-1zM20,14h1v2h-1zM20,18h1v1h-1zM20,20h1v9h-1zM21,8h1v7h-1zM21,16h1v1h-1zM21,18h1v1h-1zM21,20h1v1h-1zM21,24h1v2h-1zM21,28h1v1h-1zM22,0h1v7h-1zM22,8h1v2h-1zM22,11h1v4h-1zM22,16h1v3h-1zM22,20h1v1h-1zM22,22h1v1h-1zM22,24h1v1h-1zM22,27h1v1h-1zM23,0h1v1h-1zM23,6h1v1h-1zM23,9h1v1h-1zM23,14h1v1h-1zM23,19h1v2h-1zM23,24h1v1h-1zM23,26h1v2h-1zM24,0h1v1h-1zM24,2h1v3h-1zM24,6h1v1h-1zM24,10h1v2h-1zM24,14h1v1h-1zM24,20h1v7h-1zM24,28h1v1h-1zM25,0h1v1h-1zM25,2h1v3h-1zM25,6h1v1h-1zM25,9h1v1h-1zM25,11h1v3h-1zM25,15h1v1h-1zM25,18h1v2h-1zM25,22h1v1h-1zM25,26h1v1h-1zM25,28h1v1h-1zM26,0h1v1h-1zM26,2h1v3h-1zM26,6h1v1h-1zM26,8h1v1h-1zM26,10h1v1h-1zM26,13h1v1h-1zM26,17h1v1h-1zM26,21h1v1h-1zM26,26h1v1h-1zM27,0h1v1h-1zM27,6h1v1h-1zM27,10h1v3h-1zM27,14h1v3h-1zM27,18h1v2h-1zM27,21h1v4h-1zM27,27h1v2h-1zM28,0h1v7h-1zM28,9h1v2h-1zM28,12h1v3h-1zM28,16h1v3h-1zM28,21h1v4h-1zM28,26h1v1h-1zM28,28h1v1h-1z"/>''';
+    try {
+      // Create QR code using the qr package (similar to C implementation)
+      final qrCode = QrCode(
+          4,
+          QrErrorCorrectLevel
+              .L); // Version 4, Low error correction (like ECC_LOW in C)
+      qrCode.addData(data);
+
+      final qrImage = QrImage(qrCode);
+      final size = qrImage.moduleCount;
+
+      // Build SVG path similar to C implementation
+      final pathData = StringBuffer();
+
+      for (int x = 0; x < size; x++) {
+        int start = 0;
+        int length = 0;
+
+        for (int y = 0; y < size; y++) {
+          bool isDark = qrImage.isDark(y, x);
+
+          if (isDark && length == 0) {
+            start = y;
+          }
+          if (isDark) {
+            length++;
+          }
+          if (length != 0 && (!isDark || y + 1 == size)) {
+            pathData.write('M$x,${start}h1v${length}h-1z');
+            length = 0;
+          }
+        }
+      }
+
+      return '<path d="${pathData.toString()}"/>';
+    } catch (e) {
+      // Fallback to empty path if QR generation fails
+      return '';
+    }
   }
 
   /// URL encode helper function
