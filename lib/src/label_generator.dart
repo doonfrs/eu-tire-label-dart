@@ -159,21 +159,23 @@ class LabelGenerator {
   }
 
   static String _getFuelEfficiencyY(FuelEfficiencyClass efficiency) {
+    // Arrow is 8 units tall, so middle is at Y+4
+    // To center on dotted line: transform_Y = line_Y - 4
     switch (efficiency) {
       case FuelEfficiencyClass.a:
-        return '24.375';
+        return '25.375'; // line at 29.375
       case FuelEfficiencyClass.b:
-        return '29.875';
+        return '30.875'; // line at 34.875
       case FuelEfficiencyClass.c:
-        return '35.375';
+        return '36.375'; // line at 40.375
       case FuelEfficiencyClass.d:
-        return '40.875';
+        return '41.875'; // line at 45.875
       case FuelEfficiencyClass.e:
-        return '46.375';
+        return '47.375'; // line at 51.375
       case FuelEfficiencyClass.f:
-        return '51.875';
+        return '52.875'; // line at 56.875
       case FuelEfficiencyClass.g:
-        return '58.375';
+        return '58.375'; // line at 62.375
       case FuelEfficiencyClass.none:
         return '0';
     }
@@ -201,21 +203,23 @@ class LabelGenerator {
   }
 
   static String _getWetGripY(WetGripClass wetGrip) {
+    // Arrow is 8 units tall, so middle is at Y+4
+    // To center on dotted line: transform_Y = line_Y - 4
     switch (wetGrip) {
       case WetGripClass.a:
-        return '24.375';
+        return '25.375'; // line at 29.375
       case WetGripClass.b:
-        return '29.875';
+        return '30.875'; // line at 34.875
       case WetGripClass.c:
-        return '35.375';
+        return '36.375'; // line at 40.375
       case WetGripClass.d:
-        return '40.875';
+        return '41.875'; // line at 45.875
       case WetGripClass.e:
-        return '46.375';
+        return '47.375'; // line at 51.375
       case WetGripClass.f:
-        return '51.875';
+        return '52.875'; // line at 56.875
       case WetGripClass.g:
-        return '58.375';
+        return '58.375'; // line at 62.375
       case WetGripClass.none:
         return '0';
     }
